@@ -1,5 +1,5 @@
 {% set name = "opcua" %}
-{% set version = "0.98.8" %}
+{% set version = "0.98.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0a22fd6fd774e2ec47dc1200df0e75ca50f2964765e2e638b1466e047fab6206
+  sha256: cff42f65dc8aa0752d6e0c416be40298009a0b6001c71109b3032f70816fc779
 
 build:
   number: 0
