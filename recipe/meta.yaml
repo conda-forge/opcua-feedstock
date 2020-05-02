@@ -1,5 +1,5 @@
 {% set name = "opcua" %}
-{% set version = "0.98.9" %}
+{% set version = "0.98.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: cff42f65dc8aa0752d6e0c416be40298009a0b6001c71109b3032f70816fc779
+  sha256: 30f232dc7567b73473a9c57d26dade0c21d171c11f694ec8ae329bba4c691993
 
 build:
-  number: 2
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - uabrowse = opcua.tools:uals
     - uacall = opcua.tools:uacall
@@ -63,7 +63,7 @@ about:
   license: LGPL-3.0
   license_family: LGPL
   license_file: COPYING
-  summary: 'LGPL Pure Python OPC-UA Client and Server'
+  summary: LGPL Pure Python OPC-UA Client and Server
   doc_url: https://python-opcua.readthedocs.io
   dev_url: https://github.com/FreeOpcUa/python-opcua
 
