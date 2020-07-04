@@ -5,7 +5,7 @@ Home: http://freeopcua.github.io/
 
 Package license: LGPL-3.0
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: LGPL Pure Python OPC-UA Client and Server
 
