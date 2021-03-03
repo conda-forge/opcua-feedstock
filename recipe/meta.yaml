@@ -1,5 +1,5 @@
 {% set name = "opcua" %}
-{% set version = "0.98.12" %}
+{% set version = "0.98.13" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 947cf0de842f9eee86ed2c39607c2b2c5a288ed42e0298d87c7a663ec7ee48aa
+  sha256: 3352f30b5fed863146a82778aaf09faa5feafcb9dd446a4f49ff34c0c3ebbde6
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - uabrowse = opcua.tools:uals
