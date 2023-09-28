@@ -10,7 +10,7 @@ source:
   sha256: 3352f30b5fed863146a82778aaf09faa5feafcb9dd446a4f49ff34c0c3ebbde6
 
 build:
-  number: 3
+  number: 4
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - uabrowse = opcua.tools:uals
