@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 3352f30b5fed863146a82778aaf09faa5feafcb9dd446a4f49ff34c0c3ebbde6
 
 build:
-  number: 5
+  number: 6
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - uabrowse = opcua.tools:uals
