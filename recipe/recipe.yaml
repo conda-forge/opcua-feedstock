@@ -10,10 +10,9 @@ source:
   sha256: 3352f30b5fed863146a82778aaf09faa5feafcb9dd446a4f49ff34c0c3ebbde6
 
 build:
+  noarch: python
   script: python -m pip install . -vv
-  number: 7
-  skip:
-    - ppc64le
+  number: 8
   python:
     entry_points:
       - uabrowse = opcua.tools:uals
@@ -28,25 +27,22 @@ build:
       - uawrite = opcua.tools:uawrite
 
 requirements:
-  build:
-    - if: build_platform != host_platform
-      then:
-        - python
-        - cross-python_${{ host_platform }}
-        - pip
   host:
-    - python
+    - python ${{ python_min }}.*
     - pip
     - setuptools
   run:
     - cryptography
     - lxml
-    - python
+    - python >=${{ python_min }}
     - python-dateutil
     - pytz
 
 tests:
   - python:
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
       imports:
         - opcua
         - opcua.client
