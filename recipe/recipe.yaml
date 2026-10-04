@@ -1,0 +1,60 @@
+context:
+  version: "0.98.13"
+
+package:
+  name: opcua
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/o/opcua/opcua-${{ version }}.tar.gz
+  sha256: 3352f30b5fed863146a82778aaf09faa5feafcb9dd446a4f49ff34c0c3ebbde6
+
+build:
+  script: python -m pip install . -vv
+  number: 7
+
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+  run:
+    - cryptography
+    - lxml
+    - python
+    - python-dateutil
+    - pytz
+
+tests:
+  - python:
+      imports:
+        - opcua
+        - opcua.client
+        - opcua.common
+        - opcua.crypto
+        - opcua.server
+        - opcua.ua
+      pip_check: true
+  - script:
+      - uabrowse -h
+      - uacall -h
+      - uaclient -h
+      - uadiscover -h
+      - uahistoryread -h
+      - uals -h
+      - uaread -h
+      - uaserver -h
+      - uasubscribe -h
+      - uawrite -h
+
+about:
+  homepage: http://freeopcua.github.io/
+  summary: 'LGPL Pure Python OPC-UA Client and Server'
+  license: LGPL-3.0-or-later
+  license_file: COPYING
+  documentation: https://python-opcua.readthedocs.io
+  repository: https://github.com/FreeOpcUa/python-opcua
+
+extra:
+  recipe-maintainers:
+    - m-rossi
