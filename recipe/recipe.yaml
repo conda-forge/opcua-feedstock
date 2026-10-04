@@ -26,6 +26,12 @@ build:
       - uawrite = opcua.tools:uawrite
 
 requirements:
+  build:
+    - if: build_platform != host_platform
+      then:
+        - python
+        - cross-python_${{ host_platform }}
+        - pip
   host:
     - python
     - pip
