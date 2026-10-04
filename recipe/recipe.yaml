@@ -11,7 +11,7 @@ source:
 
 build:
   script: python -m pip install . -vv
-  number: 7
+  number: 8
   python:
     entry_points:
       - uabrowse = opcua.tools:uals
