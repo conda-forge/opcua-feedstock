@@ -12,8 +12,6 @@ source:
 build:
   script: python -m pip install . -vv
   number: 7
-  skip:
-    - ppc64le
   python:
     entry_points:
       - uabrowse = opcua.tools:uals
@@ -28,25 +26,22 @@ build:
       - uawrite = opcua.tools:uawrite
 
 requirements:
-  build:
-    - if: build_platform != host_platform
-      then:
-        - python
-        - cross-python_${{ host_platform }}
-        - pip
   host:
-    - python
+    - python ${{ python_min }}.*
     - pip
     - setuptools
   run:
     - cryptography
     - lxml
-    - python
+    - python >=${{ python_min }}
     - python-dateutil
     - pytz
 
 tests:
   - python:
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
       imports:
         - opcua
         - opcua.client
