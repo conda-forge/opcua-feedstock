@@ -13,8 +13,7 @@ build:
   script: python -m pip install . -vv
   number: 7
   skip:
-    # skip for now as cryptography 50.0.1 is not supported on ppc64le and Python 3.15
-    - ppc64le and match('python', '>=3.15')
+    - ppc64le
   python:
     entry_points:
       - uabrowse = opcua.tools:uals
